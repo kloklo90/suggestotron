@@ -2,11 +2,11 @@
 
 <h1>Listing Topics</h1>
 
-<table>
+<table class='table'>
   <thead>
     <tr>
       <th>Title</th>
-      <th colspan="2"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -16,8 +16,7 @@
         <td><%= link_to pirate_title(topic.title), topic %></td>
         <td><%= pluralize(topic.votes.count, "vote") %></td>
         <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'delete', topic, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Topic', new_topic_path %>
+<%= link_to 'New Topic', new_topic_path, class: "btn btn-primary" %>
